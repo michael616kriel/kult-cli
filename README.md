@@ -31,3 +31,14 @@ npm i @kult/cli
 ```bash
 kult
 ```
+## Built Using <a name = "built_using"></a>
+
+- [Chalk](https://www.npmjs.com/package/chalk)
+- [Figlet](https://www.npmjs.com/package/figlet) 
+- [Handlebars](https://handlebarsjs.com/) 
+- [Prompts](https://www.npmjs.com/package/prompts)
+## Authors <a name = "authors"></a>
+
+- [@michael616kriel](https://github.com/michael616kriel) - Idea & Initial work
+
+See also the list of [contributors](https://github.com/michael616kriel/kult-cli/contributors) who participated in this project.
