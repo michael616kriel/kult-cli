@@ -18,7 +18,6 @@ npm i @kult/cli
 
 ## Usage
 
-
 ```bash
 kult
 ```
