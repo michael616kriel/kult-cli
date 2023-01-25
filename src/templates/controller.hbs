@@ -1,6 +1,6 @@
-import { Controller, Get } from 'plugable-api';
+import { KultController, Get } from '@kult/core';
 
-@Controller()
+@KultController()
 class {{ name }} {
   @Get('/')
   get() {
@@ -9,3 +9,5 @@ class {{ name }} {
 }
 
 export default {{ name }};
+
+

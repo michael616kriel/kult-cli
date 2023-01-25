@@ -41,9 +41,7 @@ const createPrompts: PromptObject<string> | PromptObject<string>[] = [
 export const getPrompts = async () => {
   const responses = [];
   const action = await prompts(deafaultPrompt);
-  const currentDirectory = process.cwd();
-  const folderPath = join(currentDirectory, 'src/test');
-
+  const folderPath = join(process.cwd(), 'src');
   if (action.type === 'create') {
     for (const prompt of createPrompts) {
       const response = await prompts(prompt);

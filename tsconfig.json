@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6"],
-    "module": "ES6",
+    "baseUrl": ".",
+    "target": "es2018",
+    "module": "NodeNext",
+    "lib": ["es2017"],
     "allowJs": true,
     "outDir": "build",
     "rootDir": "src",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": false,
     "strictPropertyInitialization": false,
-    "moduleResolution": "Node"
+    "declaration": true
   }
 }

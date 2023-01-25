@@ -2,18 +2,19 @@
   "name": "@kult/cli",
   "version": "0.0.4",
   "description": "",
-  "main": "build/index.js",
+  "main": "build/index.mjs",
   "types": "build/index.d.ts",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "npm run build && node build/index.mjs",
     "dev": "npx nodemon",
-    "build": "rimraf ./build && tsc",
+    "build": "rimraf ./build && tsc && yarn copy-templates",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-local": "npm i -g .",
-    "publish": "npm publish --access public"
+    "deploy-local": "yarn build && npm uninstall -g @kult/cli && npm i -g .",
+    "publish": "npm publish --access public",
+    "copy-templates": "copyfiles -u 1 src/**/*.hbs src/**/**/*.hbs build/"
   },
   "keywords": [],
   "author": "Michael Kriel <michael616kriel@gmail.com>",
@@ -27,15 +28,16 @@
   },
   "homepage": "https://github.com/michael616kriel/kult-cli",
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/figlet": "^1.5.5",
     "@types/node": "^18.11.18",
     "@types/prompts": "^2.4.2",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
-    "@types/chalk": "^2.2.0",
-    "@types/figlet": "^1.5.5",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.32.0",
     "nodemon": "^2.0.20",
-    "rimraf": "^4.1.1",
+    "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
@@ -46,6 +48,6 @@
     "prompts": "^2.4.2"
   },
   "bin": {
-    "nova-cli": "build/index.mjs"
+    "kult": "build/index.mjs"
   }
 }

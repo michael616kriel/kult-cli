@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import Handlebars from 'handlebars';
-import { join } from 'path';
+import { dirname, join } from 'path';
 
 type StructureType = {
   name: string;
@@ -42,7 +42,10 @@ export const getTemplate = async (
   name: string,
   data: { [key: string]: string | number }
 ): Promise<string | null> => {
-  const templatePath = join(process.cwd(), `./src/templates/${name}.hbs`);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const moduleRoot = dirname(import.meta.url).replace('file://', '');
+  const templatePath = join(moduleRoot, `../templates/${name}.hbs`);
   if (existsSync(templatePath)) {
     const content = await readFileSync(templatePath);
     const template = Handlebars.compile(content.toString());
