@@ -1,6 +1,6 @@
 # @kult/cli
 
-Kult cli is toolkit for configuring and bootstrapping Kutl applications.
+Kult cli is toolkit for configuring and bootstrapping Kult applications.
 
 
 ## Installation
