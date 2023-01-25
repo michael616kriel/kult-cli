@@ -1,5 +1,5 @@
 {
-  "name": "@nova/cli",
+  "name": "@kult/cli",
   "version": "0.0.1",
   "description": "",
   "main": "build/index.js",
@@ -12,19 +12,20 @@
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-local": "npm i -g ."
+    "deploy-local": "npm i -g .",
+    "publish": "npm publish --access public"
   },
   "keywords": [],
   "author": "Michael Kriel <michael616kriel@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/michael616kriel/nova-cli.git"
+    "url": "git+https://github.com/michael616kriel/kult-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/michael616kriel/nova-cli/issues"
+    "url": "https://github.com/michael616kriel/kult-cli/issues"
   },
-  "homepage": "https://github.com/michael616kriel/nova-cli",
+  "homepage": "https://github.com/michael616kriel/kult-cli",
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@types/prompts": "^2.4.2",
@@ -45,6 +46,6 @@
     "prompts": "^2.4.2"
   },
   "bin": {
-    "nova-cli": "./build/index.mjs"
+    "nova-cli": "build/index.mjs"
   }
 }
