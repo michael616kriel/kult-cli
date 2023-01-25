@@ -13,7 +13,7 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy-local": "yarn build && npm uninstall -g @kult/cli && npm i -g .",
-    "publish": "npm version patch && npm publish --access public",
+    "npm-publish": "npm version patch && npm publish --access public",
     "copy-templates": "copyfiles -u 1 src/**/*.hbs src/**/**/*.hbs build/"
   },
   "keywords": [],
