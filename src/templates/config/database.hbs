@@ -1,0 +1,10 @@
+import { Env } from 'plugable-cms';
+
+export default {
+  type: Env.get('DATABASE_TYPE', 'postgres'),
+  host: Env.get('DATABASE_HOST', 'localhost'),
+  port: Env.get('DATABASE_PORT', 5432),
+  username: Env.get('DATABASE_USERNAME', ''),
+  password: Env.get('DATABASE_PASWWORD', ''),
+  database: Env.get('DATABASE_DATABASE', '')
+}

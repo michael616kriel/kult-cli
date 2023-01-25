@@ -1,0 +1,11 @@
+import { Controller, Get } from 'plugable-api';
+
+@Controller()
+class {{ name }} {
+  @Get('/')
+  get() {
+    return 'Hello World';
+  }
+}
+
+export default {{ name }};
