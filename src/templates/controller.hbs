@@ -1,14 +1,19 @@
-import { KultController, Get } from '@kult/core';
+import { KultController, Get, Application, ControllerBase, Context } from '@kult/core';
 
-@KultController('{{ name }}')
-class {{ name }} {
+@KultController('{{kebabCase name}}')
+class {{pascalCase name}} extends ControllerBase {
+
+  constructor(app: Application) {
+    super(app);
+  }
+
   @Get('/')
-  get() {
+  find(ctx: Context) {
     return 'Hello World';
   }
+
 }
 
-export default {{ name }};
-
+export default {{pascalCase name}};
 
  

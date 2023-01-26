@@ -1,51 +1,29 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import Handlebars from 'handlebars';
-import { dirname, join } from 'path';
+import { camelCase, kebabCase, snakeCase, startCase } from 'lodash';
+import { join } from 'path';
+import { StructureType } from './types';
 
-type StructureType = {
-  name: string;
-  children?: StructureType;
-  template?: string;
-}[];
+Handlebars.registerHelper('pascalCase', function (value) {
+  return startCase(camelCase(value)).replace(/ /g, '');
+});
 
-export const projectStruture: StructureType = [
-  {
-    name: 'app',
-    children: [
-      {
-        name: 'controllers',
-      },
-      {
-        name: 'models',
-      },
-    ],
-  },
-  {
-    name: 'config',
-    children: [
-      {
-        name: 'server.ts',
-        template: 'config/server',
-      },
-      {
-        name: 'database.ts',
-        template: 'config/database',
-      },
-    ],
-  },
-  {
-    name: 'plugins',
-  },
-];
+Handlebars.registerHelper('kebabCase', function (value) {
+  return kebabCase(value);
+});
+
+Handlebars.registerHelper('titleCase', function (value) {
+  return startCase(camelCase(value));
+});
 
 export const getTemplate = async (
   name: string,
   data: { [key: string]: string | number }
 ): Promise<string | null> => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const moduleRoot = dirname(import.meta.url).replace('file://', '');
-  const templatePath = join(moduleRoot, `../templates/${name}.hbs`);
+  const templatePath = join(
+    require.main?.path || '',
+    `./templates/${name}.hbs`
+  );
   if (existsSync(templatePath)) {
     const content = await readFileSync(templatePath);
     const template = Handlebars.compile(content.toString());
@@ -84,7 +62,7 @@ export const buildProjectStructure = async (
 export const createController = async (basePath: string, name: string) => {
   const path = join(
     basePath,
-    `app/controllers/${name.toLowerCase()}.controller.ts`
+    `app/controllers/${snakeCase(name)}.controller.ts`
   );
   if (!existsSync(path)) {
     const template = await getTemplate('controller', { name });
@@ -95,7 +73,7 @@ export const createController = async (basePath: string, name: string) => {
 };
 
 export const createModel = async (basePath: string, name: string) => {
-  const path = join(basePath, `app/models/${name.toLowerCase()}.model.ts`);
+  const path = join(basePath, `app/models/${snakeCase(name)}.model.ts`);
   if (!existsSync(path)) {
     const template = await getTemplate('model', { name });
     if (template) {
@@ -105,7 +83,7 @@ export const createModel = async (basePath: string, name: string) => {
 };
 
 export const createPlugin = async (basePath: string, name: string) => {
-  const path = join(basePath, `plugins/${name.toLowerCase()}`);
+  const path = join(basePath, `plugins/${kebabCase(name)}`);
   if (!existsSync(path)) {
     mkdirSync(path);
   }
@@ -113,4 +91,8 @@ export const createPlugin = async (basePath: string, name: string) => {
   if (template) {
     writeFileSync(join(path, 'index.ts'), template);
   }
+};
+
+export const getSourceDir = () => {
+  return join(process.cwd(), 'src');
 };

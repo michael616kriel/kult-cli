@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 import figlet from 'figlet';
-import { getPrompts } from './utils/prompts.mjs';
-
+import { run } from './commands/entry';
 console.log(figlet.textSync('KULT CLI'));
-getPrompts();
-
+run();

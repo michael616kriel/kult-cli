@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es2018",
+    "baseUrl": "./src",
+    "target": "es2018",                          
     "module": "NodeNext",
     "lib": ["es2017"],
     "allowJs": true,
@@ -12,8 +12,14 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": false,
     "strictPropertyInitialization": false,
-    "declaration": true
-  }
+    "declaration": true,
+    "paths": {
+      "*": ["*"],
+      "commands/*": ["commands/*"],
+      "utils/*": ["utils/*"]
+    }
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
