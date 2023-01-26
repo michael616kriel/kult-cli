@@ -1,6 +1,6 @@
 import { KultController, Get } from '@kult/core';
 
-@KultController()
+@KultController('{{ name }}')
 class {{ name }} {
   @Get('/')
   get() {
@@ -11,3 +11,4 @@ class {{ name }} {
 export default {{ name }};
 
 
+ 

@@ -1,8 +1,8 @@
-import { KultPlugin } from '@kult/core';
+import { Application, KultPlugin, PluginBase } from '@kult/core';
 
 @KultPlugin('{{ name }}')
-export default class {{ name }} {
-  constructor() {
-    // Do something here...
+export default class {{ name }} extends PluginBase {
+  constructor(app: Application) {
+    super(app)
   }
 }
