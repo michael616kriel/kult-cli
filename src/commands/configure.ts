@@ -21,8 +21,12 @@ const projectStruture: StructureType = [
         template: 'config/server',
       },
       {
-        name: 'database.ts',
+        name: 'plugins.ts',
         template: 'config/database',
+      },
+      {
+        name: 'database.ts',
+        template: 'config/plugins',
       },
     ],
   },
