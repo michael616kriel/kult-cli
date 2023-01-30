@@ -28,6 +28,14 @@ const projectStruture: StructureType = [
         name: 'database.ts',
         template: 'config/plugins',
       },
+      {
+        name: 'cors.ts',
+        template: 'config/cors',
+      },
+      {
+        name: 'drive.ts',
+        template: 'config/drive',
+      },
     ],
   },
   {
