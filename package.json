@@ -1,7 +1,7 @@
 {
   "name": "@kult/cli",
   "version": "0.0.13",
-  "description": "",
+  "description": "ClI tool for managing Kult core applications",
   "main": "build/index.mjs",
   "types": "build/index.d.mts",
   "type": "commonjs",
