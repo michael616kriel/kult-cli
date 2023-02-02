@@ -1,0 +1,10 @@
+import { Application, KultPlugin, PluginBase } from '@kult/core';
+
+@KultPlugin('{{titleCase name}}')
+class {{pascalCase name}} extends PluginBase {
+  constructor(app: Application) {
+    super(app)
+  }
+}
+
+export default {{pascalCase name}}

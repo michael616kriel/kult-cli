@@ -5,7 +5,9 @@
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![GitHub Issues](https://img.shields.io/github/issues/michael616kriel/kult-cli.svg)](https://github.com/michael616kriel/kult-cli/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/michael616kriel/kult-cli.svg)](https://github.com/michael616kriel/kult-cli/pulls)
+![CI](https://github.com/michael616kriel/kult-cli/actions/workflows/ci.yml/badge.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 </div>
 
